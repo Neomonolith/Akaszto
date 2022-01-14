@@ -11,22 +11,7 @@ using System.IO;
 
 namespace AkasztoFa
 {
-  class Adatok
-  {
-
-    private string szavak;
-
-    public string Szavak
-    {
-      get { return szavak; }
-      set { szavak = value; }
-    }
-
-    public Adatok(string szavak)
-    {
-      this.szavak = szavak;
-    }
-  }
+  
   public partial class Form1 : Form
   {
     List<Adatok> lista = new List<Adatok>();
@@ -56,6 +41,23 @@ namespace AkasztoFa
     private void Form1_Shown(object sender, EventArgs e)
     {
 
+    }
+
+    private void btnKilep_Click(object sender, EventArgs e)
+    {
+      Application.Exit();
+    }
+
+    private void btnUj_Click(object sender, EventArgs e)
+    {
+      this.pcAkasztofa.Image = AkasztoFa.Properties.Resources._Kezdo;
+      lblKitalalando.Text = "";
+      lblFelhasznaltak.Text = "";
+      lblProbaszam.Text = "0";
+
+      rbKonnyu.Checked = false;
+      rbKozepes.Checked = false;
+      rbNehez.Checked = false;
     }
   }
 }

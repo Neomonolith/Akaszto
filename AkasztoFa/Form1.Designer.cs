@@ -109,6 +109,7 @@ namespace AkasztoFa
       this.btnUj.TabIndex = 2;
       this.btnUj.Text = "Új Játék";
       this.btnUj.UseVisualStyleBackColor = true;
+      this.btnUj.Click += new System.EventHandler(this.btnUj_Click);
       // 
       // btnFeladas
       // 
@@ -127,6 +128,7 @@ namespace AkasztoFa
       this.btnKilep.TabIndex = 2;
       this.btnKilep.Text = "Kilépés";
       this.btnKilep.UseVisualStyleBackColor = true;
+      this.btnKilep.Click += new System.EventHandler(this.btnKilep_Click);
       // 
       // gbNehezseg
       // 

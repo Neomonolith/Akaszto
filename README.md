@@ -19,8 +19,19 @@ Akasztófa játék
   - Új Játék (Játék közben nem aktív)
   - Kilépés (Játék közben inaktív)
   - Feladás (Játék közben aktív)
+## Felhasznált változók
+- szavak (lista)
+- velSzo (string)
+- probakSzama (int)
+- hibakSzama (int)
+- eddigHasznaltBetuk (string lista (magyar specialitas))
 ## Feladat
 - [x] Form elkészítése
 - [x] Kitalálandó szavak listája fájlban
 - [x] Fázisok képek (Zsóti elkeszítette)
-- [ ] Szavak betöltése listában 
+- [x] Szavak betöltése listában 
+- [x] Alapállapot beállítása
+  - [x] változók
+  - [x] gombok
+  - [x] nehezség
+  - [x] kép
