@@ -35,7 +35,6 @@ namespace AkasztoFa
       this.lblProbaszam = new System.Windows.Forms.Label();
       this.label3 = new System.Windows.Forms.Label();
       this.lblFelhasznaltak = new System.Windows.Forms.Label();
-      this.pcAkasztofa = new System.Windows.Forms.PictureBox();
       this.btnUj = new System.Windows.Forms.Button();
       this.btnFeladas = new System.Windows.Forms.Button();
       this.btnKilep = new System.Windows.Forms.Button();
@@ -43,8 +42,9 @@ namespace AkasztoFa
       this.rbNehez = new System.Windows.Forms.RadioButton();
       this.rbKozepes = new System.Windows.Forms.RadioButton();
       this.rbKonnyu = new System.Windows.Forms.RadioButton();
-      ((System.ComponentModel.ISupportInitialize)(this.pcAkasztofa)).BeginInit();
+      this.pcAkasztofa = new System.Windows.Forms.PictureBox();
       this.gbNehezseg.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.pcAkasztofa)).BeginInit();
       this.SuspendLayout();
       // 
       // label1
@@ -100,16 +100,6 @@ namespace AkasztoFa
       this.lblFelhasznaltak.Size = new System.Drawing.Size(78, 20);
       this.lblFelhasznaltak.TabIndex = 0;
       this.lblFelhasznaltak.Text = "a,b,c,d,e,f";
-      // 
-      // pcAkasztofa
-      // 
-      this.pcAkasztofa.Image = global::AkasztoFa.Properties.Resources._Kezdo;
-      this.pcAkasztofa.Location = new System.Drawing.Point(477, 157);
-      this.pcAkasztofa.Name = "pcAkasztofa";
-      this.pcAkasztofa.Size = new System.Drawing.Size(633, 371);
-      this.pcAkasztofa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-      this.pcAkasztofa.TabIndex = 1;
-      this.pcAkasztofa.TabStop = false;
       // 
       // btnUj
       // 
@@ -183,6 +173,16 @@ namespace AkasztoFa
       this.rbKonnyu.Text = "Könnyű";
       this.rbKonnyu.UseVisualStyleBackColor = true;
       // 
+      // pcAkasztofa
+      // 
+      this.pcAkasztofa.Image = global::AkasztoFa.Properties.Resources._Kezdo;
+      this.pcAkasztofa.Location = new System.Drawing.Point(477, 157);
+      this.pcAkasztofa.Name = "pcAkasztofa";
+      this.pcAkasztofa.Size = new System.Drawing.Size(633, 371);
+      this.pcAkasztofa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.pcAkasztofa.TabIndex = 1;
+      this.pcAkasztofa.TabStop = false;
+      // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -205,9 +205,10 @@ namespace AkasztoFa
       this.Name = "Form1";
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "Analfabéta Akasztófa 0.1";
-      ((System.ComponentModel.ISupportInitialize)(this.pcAkasztofa)).EndInit();
+      this.Shown += new System.EventHandler(this.Form1_Shown);
       this.gbNehezseg.ResumeLayout(false);
       this.gbNehezseg.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.pcAkasztofa)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 

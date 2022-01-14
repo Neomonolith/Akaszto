@@ -20,6 +20,7 @@ Akasztófa játék
   - Kilépés (Játék közben inaktív)
   - Feladás (Játék közben aktív)
 ## Feladat
-- [] Form elkészítése
-- [] Kitalálandó szavak listája fájlban
-- [] Fázisok képek (Zsóti elkeszítette)
+- [x] Form elkészítése
+- [x] Kitalálandó szavak listája fájlban
+- [x] Fázisok képek (Zsóti elkeszítette)
+- [ ] Szavak betöltése listában 
