@@ -103,9 +103,11 @@ namespace AkasztoFa
       // 
       // pcAkasztofa
       // 
+      this.pcAkasztofa.Image = global::AkasztoFa.Properties.Resources._Kezdo;
       this.pcAkasztofa.Location = new System.Drawing.Point(477, 157);
       this.pcAkasztofa.Name = "pcAkasztofa";
       this.pcAkasztofa.Size = new System.Drawing.Size(633, 371);
+      this.pcAkasztofa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
       this.pcAkasztofa.TabIndex = 1;
       this.pcAkasztofa.TabStop = false;
       // 
