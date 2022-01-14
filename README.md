@@ -1,0 +1,2 @@
+# Akaszto
+Akasztófa játék
