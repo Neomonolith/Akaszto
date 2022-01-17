@@ -43,9 +43,7 @@ namespace AkasztoFa
       this.rbKozepes = new System.Windows.Forms.RadioButton();
       this.rbKonnyu = new System.Windows.Forms.RadioButton();
       this.pcAkasztofa = new System.Windows.Forms.PictureBox();
-      this.lblTESZT = new System.Windows.Forms.Label();
-      this.lblTESZT2 = new System.Windows.Forms.Label();
-      this.lblTESZT3 = new System.Windows.Forms.Label();
+      this.lblInformacio = new System.Windows.Forms.Label();
       this.gbNehezseg.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pcAkasztofa)).BeginInit();
       this.SuspendLayout();
@@ -99,9 +97,9 @@ namespace AkasztoFa
       this.lblFelhasznaltak.AutoSize = true;
       this.lblFelhasznaltak.Location = new System.Drawing.Point(52, 302);
       this.lblFelhasznaltak.Name = "lblFelhasznaltak";
-      this.lblFelhasznaltak.Size = new System.Drawing.Size(78, 20);
+      this.lblFelhasznaltak.Size = new System.Drawing.Size(24, 20);
       this.lblFelhasznaltak.TabIndex = 0;
-      this.lblFelhasznaltak.Text = "a,b,c,d,e,f";
+      this.lblFelhasznaltak.Text = "---";
       // 
       // btnUj
       // 
@@ -144,7 +142,6 @@ namespace AkasztoFa
       this.gbNehezseg.TabIndex = 4;
       this.gbNehezseg.TabStop = false;
       this.gbNehezseg.Text = "Nehézség";
-      this.gbNehezseg.Enter += new System.EventHandler(this.gbNehezseg_Enter);
       // 
       // rbNehez
       // 
@@ -189,41 +186,21 @@ namespace AkasztoFa
       this.pcAkasztofa.TabIndex = 1;
       this.pcAkasztofa.TabStop = false;
       // 
-      // lblTESZT
+      // lblInformacio
       // 
-      this.lblTESZT.AutoSize = true;
-      this.lblTESZT.Location = new System.Drawing.Point(316, 131);
-      this.lblTESZT.Name = "lblTESZT";
-      this.lblTESZT.Size = new System.Drawing.Size(51, 20);
-      this.lblTESZT.TabIndex = 5;
-      this.lblTESZT.Text = "label4";
-      // 
-      // lblTESZT2
-      // 
-      this.lblTESZT2.AutoSize = true;
-      this.lblTESZT2.Location = new System.Drawing.Point(316, 181);
-      this.lblTESZT2.Name = "lblTESZT2";
-      this.lblTESZT2.Size = new System.Drawing.Size(51, 20);
-      this.lblTESZT2.TabIndex = 5;
-      this.lblTESZT2.Text = "label4";
-      // 
-      // lblTESZT3
-      // 
-      this.lblTESZT3.AutoSize = true;
-      this.lblTESZT3.Location = new System.Drawing.Point(316, 157);
-      this.lblTESZT3.Name = "lblTESZT3";
-      this.lblTESZT3.Size = new System.Drawing.Size(51, 20);
-      this.lblTESZT3.TabIndex = 5;
-      this.lblTESZT3.Text = "label4";
+      this.lblInformacio.AutoSize = true;
+      this.lblInformacio.Location = new System.Drawing.Point(52, 12);
+      this.lblInformacio.Name = "lblInformacio";
+      this.lblInformacio.Size = new System.Drawing.Size(51, 20);
+      this.lblInformacio.TabIndex = 6;
+      this.lblInformacio.Text = "label4";
       // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(1200, 692);
-      this.Controls.Add(this.lblTESZT2);
-      this.Controls.Add(this.lblTESZT3);
-      this.Controls.Add(this.lblTESZT);
+      this.Controls.Add(this.lblInformacio);
       this.Controls.Add(this.gbNehezseg);
       this.Controls.Add(this.btnKilep);
       this.Controls.Add(this.btnFeladas);
@@ -242,7 +219,7 @@ namespace AkasztoFa
       this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
       this.Text = "Analfabéta Akasztófa 0.1";
       this.Shown += new System.EventHandler(this.Form1_Shown);
-      this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+      this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
       this.gbNehezseg.ResumeLayout(false);
       this.gbNehezseg.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pcAkasztofa)).EndInit();
@@ -267,9 +244,7 @@ namespace AkasztoFa
     private System.Windows.Forms.RadioButton rbNehez;
     private System.Windows.Forms.RadioButton rbKozepes;
     private System.Windows.Forms.RadioButton rbKonnyu;
-    private System.Windows.Forms.Label lblTESZT;
-    private System.Windows.Forms.Label lblTESZT2;
-    private System.Windows.Forms.Label lblTESZT3;
+    private System.Windows.Forms.Label lblInformacio;
   }
 }
 

@@ -12,91 +12,31 @@ using System.Diagnostics;
 
 namespace AkasztoFa
 {
-  
+  enum Allapot
+  {
+    Nincsjatek,
+    Jatek,
+    Feladas
+  }
   public partial class Form1 : Form
   {
-    List<Adatok> lista = new List<Adatok>();
-
+    List<string> lista = new List<string>();
+    List<string> eddighasznaltBetuk;
+    int pontok;
+    int probaszam;
+    string szokitoltve;
+    string velszo;
+    Allapot allapot;
     public Form1()
+
+      
     {
       InitializeComponent();
       Beolvas();
-      Elso();
-      Nehezseg();
+      
     }
 
-    private void Nehezseg()
-    {
-      /*
-      * konnyu count >= 8
-      * kozepes count <=6
-      * nehez count <=4
-      * 
-      */
-
-      if (rbKonnyu.Checked == true)
-      {
-        rbKozepes.Enabled = false;
-        rbNehez.Enabled = false;
-
-       
-
-
-      }
-      if (rbKozepes.Checked == true)
-      {
-        rbKonnyu.Enabled = false;
-        rbNehez.Enabled = false;
-      }
-      if (rbNehez.Checked == true)
-
-      {
-        
-        rbKonnyu.Enabled = false;
-        rbKozepes.Enabled = false;
-      }
-
-    }
-
-    public void Elso()
-    {
-    
-
-
-      Random rand = new Random();
    
-      int index = rand.Next(lista.Count);
- 
-      String KitalalandoSzo = lista[index].Szavak;
-       
-      int count = 0;
-      foreach (char c in KitalalandoSzo)
-      {
-        count++;
-     
-      }
-   
-      int x = 0;
-      while (x < count)
-      {
-        lblKitalalando.Text += "_ ";
-        x++;
-      }
-
-
-     char[] characters = KitalalandoSzo.ToCharArray();
-
-
-
-      //TESZTEK  DIK
-      lblTESZT.Text = Convert.ToString( characters[0]);
-      lblTESZT3.Text = Convert.ToString(characters.Last());
-      lblTESZT2.Text = KitalalandoSzo;
-      //TESZTEK VÉGE
-
-
-     
-    }
 
     private void Beolvas()
     {
@@ -106,7 +46,7 @@ namespace AkasztoFa
       while (!be.EndOfStream)
       {
         string[] a = be.ReadLine().Split(';');
-        lista.Add(new Adatok(a[0]));
+        lista.Add(a[0]);
       }
 
       be.Close();
@@ -126,14 +66,55 @@ namespace AkasztoFa
 
     private void btnUj_Click(object sender, EventArgs e)
     {
+      allapot = Allapot.Jatek;
       this.pcAkasztofa.Image = AkasztoFa.Properties.Resources._Kezdo;
       lblKitalalando.Text = "";
       lblFelhasznaltak.Text = "";
-      lblProbaszam.Text = "0";
-
+      lblProbaszam.Text = "10";
+      probaszam = 10;
       rbKonnyu.Checked = false;
       rbKozepes.Checked = false;
       rbNehez.Checked = false;
+      Veletlenszovalasztas();
+      SzoMegjelenites();
+
+      lblInformacio.Text = $"A kitalálandó szó: ({velszo.Length} betű)";
+      btnFeladas.Enabled = true;
+      btnKilep.Enabled = false;
+      btnUj.Enabled = true;
+  eddighasznaltBetuk = new List<string>();
+    }
+
+    private void SzoMegjelenites()
+    {
+      lblKitalalando.Text = "";
+      string szokitoltve = "";
+      int hossz = velszo.Length * 2;
+      for (int i = 0; i < hossz; i++)
+      {
+        if (i % 2 == 0)
+        {
+          szokitoltve += "_";
+        }
+        else
+        {
+          szokitoltve += " ";
+        }
+
+      }
+      lblKitalalando.Text = szokitoltve;
+    }
+
+    private void Veletlenszovalasztas()
+    {
+
+      Random vel = new Random(Guid.NewGuid().GetHashCode());
+      // velszo = lista[vel.Next(lista.Count)];
+     
+      velszo = lista[vel.Next(lista.Count)];
+
+      
+
     }
 
     private void btnFeladas_Click(object sender, EventArgs e)
@@ -141,18 +122,68 @@ namespace AkasztoFa
 
     }
 
-    private void gbNehezseg_Enter(object sender, EventArgs e)
-    {
+    
 
-    }
+    
 
-    private void Form1_KeyDown(object sender, KeyEventArgs e)
+     void Form1_KeyPress(object sender, KeyPressEventArgs e)
     {
-      if (e.KeyCode == Keys.Enter)
+      if (allapot == Allapot.Jatek && Char.IsLetter(e.KeyChar))
       {
-        MessageBox.Show("Enter key pressed");
-        
+        if (!eddighasznaltBetuk.Contains(Convert.ToString( e.KeyChar)))
+        {
+
+
+          eddighasznaltBetuk.Add((e.KeyChar).ToString().ToLower());
+          // lblFelhasznaltak.Text += ((e.KeyChar).ToString().ToLower());
+
+          HasznaltBetukKiirasa();
+
+          TalaltBetukMegjelenitese(e.KeyChar.ToString());
+        }
+        else
+        {
+          MessageBox.Show("Ez a betű műr bent van", "Figyelem", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+        }
       }
     }
+
+    private void TalaltBetukMegjelenitese(string betu)
+    {
+      int hely = 0;
+      if (probaszam <= 10)
+      {
+
+
+        if (velszo.Contains(betu))
+        { 
+          szokitoltve.Replace(Convert.ToChar(betu),'_');
+        }
+        else
+        {
+          probaszam--;
+        }
+
+      }
+
+
+      if (velszo[ve])
+      {
+
+      }
+      
+
+      
+      
+
+      
+    }
+
+    private void HasznaltBetukKiirasa()
+    {
+      lblFelhasznaltak.Text += String.Join(",",eddighasznaltBetuk);
+    }
+
+   
   }
 }
